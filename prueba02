@@ -1,0 +1,15 @@
+function ValNumeroFloat(Control, event)
+	{
+		Control.value= Control.value.replace(/[^0-9\.]/g,'');
+
+        if ((event.which != 46 || Control.value.indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+            // console.log(Control.value);
+            event.preventDefault();
+            return false;
+        }
+		
+	}
+  
+  <input type="text" style="width:100px"  name="descuento_empresa_<% Response.Write Fila_item %>"  id="descuento_empresa_<% Response.Write Fila_item %>" onblur="return CalculaCosto(cantidad_material_<% Response.Write Fila_item %>, precio_unitario_<% Response.Write Fila_item %>, descuento_vendedor_<% Response.Write Fila_item %>, descuento_empresa_<% Response.Write Fila_item %>, importe_<% Response.Write Fila_item %>);"   onkeypress="return ValNumeroFloat(this, event);"  value="0.0">
+  <!-- Parece que solo funciona para la funcion de tipo  onkeypress y no con onkeyup-->
+  <!-- onkeypress="return ValNumeroFloat(this, event);"  value="0.0"> -->
